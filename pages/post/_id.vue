@@ -35,7 +35,7 @@
       </p>
     </main>
     <footer>
-      <app-comment-form />
+      <app-comment-form @created="createCommentHandler" v-if="canAddComment" />
       <div class="comments" v-if="true">
         <app-comment v-for="comment in 4" :key="comment" :comment="comment" />
       </div>
@@ -52,8 +52,18 @@ export default {
     AppComment,
     AppCommentForm
   },
+  data() {
+    return {
+      canAddComment: true
+    };
+  },
   validate({ params }) {
     return Boolean(params.id);
+  },
+  methods: {
+    createCommentHandler() {
+      this.canAddComment = false;
+    }
   }
 };
 </script>
