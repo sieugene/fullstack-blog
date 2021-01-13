@@ -1,7 +1,9 @@
 <template>
   <div class="admin-layout-wrap">
     <el-container :style="{ height: '100%' }">
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside width="250px">
+        <app-aside />
+      </el-aside>
       <el-main>
         <Nuxt />
       </el-main>
@@ -10,7 +12,12 @@
 </template>
 
 <script>
-export default {};
+import AppAside from "@/components/admin/Aside";
+export default {
+  components: {
+    AppAside
+  }
+};
 </script>
 
 <style lang="scss" scoped>
