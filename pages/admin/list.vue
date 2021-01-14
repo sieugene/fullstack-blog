@@ -1,10 +1,11 @@
 <template>
-    <div>
-        list
-    </div>
+  <div>
+    list
+  </div>
 </template>
 <script>
 export default {
-  layout: "admin"
+  layout: "admin",
+  middleware: ["admin-auth"]
 };
 </script>

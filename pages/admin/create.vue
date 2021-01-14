@@ -1,10 +1,11 @@
 <template>
-    <div>
-        cretate
-    </div>
+  <div>
+    cretate
+  </div>
 </template>
 <script>
 export default {
-  layout: "admin"
+  layout: "admin",
+  middleware: ["admin-auth"]
 };
 </script>
