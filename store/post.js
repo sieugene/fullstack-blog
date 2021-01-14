@@ -18,7 +18,8 @@ export const actions = {
             _id: Math.random()
           }
         ]);
-      }, 1);
+      }, 1000);
     });
-  }
+  },
+  async remove({}, id) {}
 };
