@@ -12,3 +12,17 @@
   padding-top: 4rem;
 }
 </style>
+<script>
+export default {
+  computed: {
+    error() {
+      return this.$store.getters.error;
+    }
+  },
+  watch: {
+    error(value) {
+      this.$message.error(value);
+    }
+  }
+};
+</script>
