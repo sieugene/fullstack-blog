@@ -1,5 +1,6 @@
 const passport = require("passport");
 const { Router } = require("express");
+const upload = require("../middleware/upload");
 const ctr = require("../controllers/post.controller");
 const router = Router();
 
@@ -7,27 +8,32 @@ const router = Router();
 // api/post/admin
 router.post(
   "/admin/",
-  passport.authenticate("jwt", { session: false }, ctr.create)
+  passport.authenticate(
+    "jwt",
+    { session: false },
+    upload.single("image"),
+    ctr.create
+  )
 );
 router.get(
   "/admin/",
   passport.authenticate("jwt", { session: false }),
-  ctx.getAll
+  ctr.getAll
 );
 router.get(
   "/admin/:id",
   passport.authenticate("jwt", { session: false }),
-  ctx.getById
+  ctr.getById
 );
 router.put(
   "/admin/:id",
   passport.authenticate("jwt", { session: false }),
-  ctx.update
+  ctr.update
 );
 router.delete(
   "/admin/:id",
   passport.authenticate("jwt", { session: false }),
-  ctx.remove
+  ctr.remove
 );
 // Base
 // api/post
