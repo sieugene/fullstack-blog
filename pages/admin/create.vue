@@ -7,16 +7,28 @@
   >
     <h1 class="mb">Создать новый пост</h1>
     <el-form-item label="Введите название поста" prop="title">
-      <el-input v-model.trim="controls.title" />
+      <el-input v-model="controls.title" />
     </el-form-item>
     <el-form-item label="Текст в формате .md или .html" prop="text">
       <el-input
         type="textarea"
         resize="none"
         :rows="10"
-        v-model.trim="controls.text"
+        v-model="controls.text"
       />
     </el-form-item>
+
+    <el-button type="success" plain @click="previewDialog = true" class="mb">
+      Предпросмотр
+    </el-button>
+
+    <el-dialog title="Предпросмотр" :visible.sync="previewDialog">
+      <div :key="controls.text">
+        <vue-markdown>
+          {{ controls.text }}
+        </vue-markdown>
+      </div>
+    </el-dialog>
 
     <el-form-item>
       <el-button type="primary" round native-type="submit" :loading="loading"
@@ -33,6 +45,7 @@ export default {
   data() {
     return {
       loading: false,
+      previewDialog: false,
       controls: {
         text: "",
         title: ""
