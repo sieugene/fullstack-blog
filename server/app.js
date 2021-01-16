@@ -16,10 +16,8 @@ mongoose
   .catch(e => {
     console.log(e);
   });
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.use('/api/auth',authRoutes)
+app.use("/api/auth", authRoutes);
 
 module.exports = app;
