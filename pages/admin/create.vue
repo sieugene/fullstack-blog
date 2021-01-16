@@ -30,6 +30,23 @@
       </div>
     </el-dialog>
 
+    <el-upload
+      class="mb"
+      drag
+      action="https://jsonplaceholder.typicode.com/posts/"
+      :on-change="handleImage"
+      :auto-upload="false"
+      ref="upload"
+    >
+      <i class="el-icon-upload"></i>
+      <div class="el-upload__text">
+        Перетащите картинку <em>или нажмите</em>
+      </div>
+      <div class="el-upload__tip" slot="tip">
+        файлы с расширением jpg/png
+      </div>
+    </el-upload>
+
     <el-form-item>
       <el-button type="primary" round native-type="submit" :loading="loading"
         >Создать пост</el-button
@@ -46,6 +63,7 @@ export default {
     return {
       loading: false,
       previewDialog: false,
+      image: null,
       controls: {
         text: "",
         title: ""
@@ -71,24 +89,32 @@ export default {
   methods: {
     onSubmit() {
       this.$refs.form.validate(async valid => {
-        if (valid) {
+        if (valid && this.image) {
           this.loading = true;
           const formData = {
             title: this.controls.title,
-            text: this.controls.text
+            text: this.controls.text,
+            image: this.image
           };
           try {
             await this.$store.dispatch("post/create", formData);
             this.controls.title = "";
             this.controls.text = "";
+            this.image = null;
+            this.$refs.upload.clearFiles();
             this.$message.success("Пост создан");
           } catch (e) {
             this.$message.error(e);
           } finally {
             this.loading = false;
           }
+        } else {
+          this.$message.warning("Форма не валидна");
         }
       });
+    },
+    handleImage(file, fileList) {
+      this.image = file.raw;
     }
   }
 };
