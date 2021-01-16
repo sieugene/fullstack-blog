@@ -13,6 +13,7 @@
     "body-parser": "^1.19.0",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
+    "mongoose": "^5.11.12",
     "nuxt": "^2.14.6",
     "vue-markdown": "^2.2.4"
   },
