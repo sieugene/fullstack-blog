@@ -1,5 +1,8 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
+  serverMiddleware: {
+    "/api": "~/api"
+  },
   head: {
     title: "nuxt-blog",
     meta: [

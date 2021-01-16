@@ -5,5 +5,6 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+console.log("MIDDLEWARE API!!!");
 
 module.exports = app;
