@@ -25,10 +25,12 @@ export const actions = {
     }
   },
   setToken({ commit }, token) {
+    this.$axios.setToken(token, "Bearer");
     commit("setToken", token);
   },
   logout({ commit }) {
     commit("clearToken");
+    this.$axios.setToken(false);
   },
   async createUser({ commit }, formData) {
     try {
@@ -41,5 +43,6 @@ export const actions = {
   }
 };
 export const getters = {
-  isAuth: state => Boolean(state.token)
+  isAuth: state => Boolean(state.token),
+  token: state => state.token
 };
