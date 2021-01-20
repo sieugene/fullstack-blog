@@ -38,11 +38,12 @@ export const actions = {
       fd.append("title", title);
       fd.append("text", text);
       fd.append("image", image, image.name);
-      return await new Promise(resolve => {
-        setTimeout(() => {
-          resolve();
-        }, 1000);
-      });
+      return await this.$axios.post("/api/post/admin", fd);
+      // return await new Promise(resolve => {
+      //   setTimeout(() => {
+      //     resolve();
+      //   }, 1000);
+      // });
     } catch (e) {
       dispatch("commit", e, { root: true });
       throw e;

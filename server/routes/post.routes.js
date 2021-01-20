@@ -8,12 +8,9 @@ const router = Router();
 // api/post/admin
 router.post(
   "/admin/",
-  passport.authenticate(
-    "jwt",
-    { session: false },
-    upload.single("image"),
-    ctr.create
-  )
+  passport.authenticate("jwt", { session: false }),
+  upload.single("image"),
+  ctr.create
 );
 router.get(
   "/admin/",
