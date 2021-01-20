@@ -72,6 +72,9 @@ export default {
       }
     };
   },
+  mounted() {
+    this.controls.text = this.post.text;
+  },
   methods: {
     onSubmit() {
       this.$refs.form.validate(async valid => {
