@@ -2,25 +2,21 @@
   <!-- <article class="post"></article> -->
   <el-card shadow="hover" :body-style="{ padding: 0 }" class="post">
     <header slot="header" class="post-header">
-      <h3>Post title</h3>
+      <h3>{{ post.title }}</h3>
       <small>
         <i class="el-icon-time"></i>
-        {{ new Date().toLocaleString() }}</small
+        {{ new Date(post.date).toLocaleString() }}</small
       >
     </header>
     <div class="post-body">
-      <img
-        src="https://img1.goodfon.ru/original/1920x1408/2/39/praga-chehiya-charles-bridge.jpg"
-        alt="post image"
-        class="post-img"
-      />
+      <img :src="post.imageUrl" alt="post image" class="post-img" />
     </div>
     <footer class="post-footer">
       <el-button round @click="openPost">
         Открыть
       </el-button>
       <span>
-        <i class="el-icon-message">12</i>
+        <i class="el-icon-message">{{ post.comments.length }}</i>
       </span>
     </footer>
   </el-card>
@@ -28,9 +24,15 @@
 
 <script>
 export default {
+  props: {
+    post: {
+      type: Object,
+      required: true
+    }
+  },
   methods: {
     openPost(id) {
-      id = "test-id";
+      id = this.post._id;
       this.$router.push(`/post/${id}`);
     }
   }
