@@ -1,14 +1,14 @@
 <template>
   <el-card class="comment">
     <div class="comment-header">
-      <span class="name">Person name</span>
+      <span class="name">{{comment.name}}</span>
       <span>
         <i class="el-icon-time"></i>
-        {{ new Date().toLocaleString() }}
+        {{ new Date(comment.date).toLocaleString() }}
       </span>
     </div>
     <div class="comment-text">
-      Lorem ipsum dolor sit amet.
+      {{comment.text}}
     </div>
   </el-card>
 </template>
