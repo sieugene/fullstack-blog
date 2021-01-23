@@ -21,7 +21,6 @@ export const actions = {
         "/api/auth/admin/login",
         formData
       );
-      console.log(token, "TOKEN!!!");
       dispatch("setToken", token);
     } catch (e) {
       commit("setError", e, { root: true });
@@ -41,7 +40,6 @@ export const actions = {
   async createUser({ commit }, formData) {
     try {
       await this.$axios.$post("/api/auth/admin/create", formData);
-      console.log("createUser", formData);
     } catch (e) {
       commit("setError", e, { root: true });
       throw e;

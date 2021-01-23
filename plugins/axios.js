@@ -7,7 +7,6 @@ export default function({ $axios, redirect, store }) {
       const token = store.getters["auth/token"];
       request.headers.common["Authorization"] = `Bearer ${token}`;
     }
-    console.log(request.headers);
 
     return request;
   });
