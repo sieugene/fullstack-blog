@@ -52,6 +52,11 @@ export default {
     AppComment,
     AppCommentForm
   },
+  head() {
+    return {
+      title: `${this.post.title} | ${process.env.appName}`
+    };
+  },
   async asyncData({ store, params }) {
     const post = await store.dispatch("post/fetchById", params.id);
     await store.dispatch("post/addView", post);

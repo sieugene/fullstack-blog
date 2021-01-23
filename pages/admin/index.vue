@@ -20,6 +20,11 @@ export default {
   components: {
     AnalyticChart
   },
+  head() {
+    return {
+      title: `Аналитика | ${process.env.appName}`
+    };
+  },
   layout: "admin",
   middleware: ["admin-auth"],
   async asyncData({ store }) {

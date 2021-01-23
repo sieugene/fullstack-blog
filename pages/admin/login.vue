@@ -67,11 +67,18 @@ export default {
         this.$message.success("Вы успешно вышли из системы");
         break;
       case "session":
-        this.$message.warning("Время сессии истекло, пожалуйста зайдите заново");
+        this.$message.warning(
+          "Время сессии истекло, пожалуйста зайдите заново"
+        );
         break;
       default:
         break;
     }
+  },
+  head() {
+    return {
+      title: `Авторизация | ${process.env.appName}`
+    };
   },
   methods: {
     onSubmit() {

@@ -41,13 +41,13 @@
 </template>
 <script>
 export default {
-  layout: "admin",
-  middleware: ["admin-auth"],
   head() {
     return {
-      title: `Пост | ${this.post.title}`
+      title: `${this.post.title} | ${process.env.appName}`
     };
   },
+  layout: "admin",
+  middleware: ["admin-auth"],
   validate({ params }) {
     return Boolean(params.id);
   },

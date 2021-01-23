@@ -58,7 +58,11 @@
 export default {
   layout: "admin",
   middleware: ["admin-auth"],
-  head() {},
+  head() {
+    return {
+      title: `Новый пост | ${process.env.appName}`
+    };
+  },
   data() {
     return {
       loading: false,

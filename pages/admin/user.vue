@@ -24,6 +24,11 @@
 </template>
 <script>
 export default {
+  head() {
+    return {
+      title: `Создание пользователя | ${process.env.appName}`
+    };
+  },
   layout: "admin",
   middleware: ["admin-auth"],
   data() {
