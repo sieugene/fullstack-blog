@@ -25,17 +25,19 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-  buildModules: ["@nuxtjs/pwa"],
+  // buildModules: ["@nuxtjs/pwa"],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
-    "@nuxtjs/axios",
-    "@nuxtjs/pwa"
+    "@nuxtjs/axios"
+    // "@nuxtjs/pwa"
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: process.env.BASE_URL || "http://localhost:3000/"
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
