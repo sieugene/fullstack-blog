@@ -5,6 +5,9 @@
 - Nuxt
 
 
+## [Deploy on Heroku](https://sieugene-nuxt-blog.herokuapp.com/)
+
+
 
 # nuxt-blog
 
