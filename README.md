@@ -1,3 +1,11 @@
+# This is a fullstack blog app.
+ - Node js
+- Express
+- Mongodb
+- Nuxt
+
+
+
 # nuxt-blog
 
 ## Build Setup
