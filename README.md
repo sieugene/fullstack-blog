@@ -1,6 +1,6 @@
 # This is a fullstack blog app.
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-This is a fullstack application developed with Node js Express Mongodb Next. With the ability to create posts, comment, take into account the viewing of the post. There is also an admin panel with statistics. To access the admin panel, you can deploy the application and connect your database!
+This is a fullstack application developed with Node js Express Mongodb Nuxt. With the ability to create posts, comment, take into account the viewing of the post. There is also an admin panel with statistics. To access the admin panel, you can deploy the application and connect your database!
 
  - Node js
 - Express
